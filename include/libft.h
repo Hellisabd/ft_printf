@@ -6,7 +6,7 @@
 /*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:31:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/02 19:10:24 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:02:01 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <stddef.h>
-# include <string.h>
-# include <bsd/string.h>
-# include <ctype.h>
 
 typedef struct s_list
 {

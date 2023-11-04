@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 13:54:34 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/03 13:56:24 by bgrosjea         ###   ########.fr       */
+/*   Created: 2023/11/04 15:17:02 by bgrosjea          #+#    #+#             */
+/*   Updated: 2023/11/04 17:22:40 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "ft_printf.h"
 
-void	ft_putstr(const char *s)
+int	ft_printnbr(int	n)
 {
-	if (!s)
-		return ;
-	while (*s)
-		ft_putchar(*s++);
+	char	*res;
+	res = ft_itoa(n);
+	ft_prints(res);
+	return(ft_strlen(res));
+}
+
+int	ft_printunb(unsigned int n)
+{
+	char    *res;
+        res = ft_uitoa(n);
+        ft_prints(res);
+        return((int)ft_strlen(res));
+}
+
+int	ft_printhexlow(int n)
+{
+	char	*res;
+
+	n = ft_atoi_base(n);
+	res = ft_itoa_base(n);
 }
