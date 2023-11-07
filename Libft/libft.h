@@ -71,6 +71,7 @@ typedef struct s_marche{
 	int		j;
 	int		h;
 	size_t	i;
+	int		sign;
 }	t_marche;
 
 #endif

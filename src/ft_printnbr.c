@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_printnbr(int	n)
 {
 	char	*res;
 	res = ft_itoa(n);
 	ft_prints(res);
-	return(ft_strlen(res));
+	return((int)ft_strlen(res));
 }
 
 int	ft_printunb(unsigned int n)
@@ -33,5 +33,26 @@ int	ft_printhexlow(int n)
 	char	*res;
 
 	n = ft_atoi_base(n);
-	res = ft_itoa_base(n);
+	res = ft_itoa_base(n, 0);
+	ft_prints(res);
+	return ((int)ft_strlen(res));
+}
+
+int	ft_printhexup(int n)
+{
+	char *res;
+
+	n = ft_atoi_base(n, 0);
+	res = ft_itoa_base(n, 1);
+	ft_prints(res);
+	return ((int)ft_strlen(res));
+}
+
+int	ft_printp(unsigned long n)
+{
+	char *res;
+
+	res = ft_itoa_base(n, 0);
+	ft_prints(res);
+	return ((int)ft_strlen(res));
 }

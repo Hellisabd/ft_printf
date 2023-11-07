@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_prints(const char *s)
 {
@@ -19,8 +19,7 @@ int	ft_prints(const char *s)
 	i = 0;
 	while (s[i])
 	{
-		write(1, s[i], 1);
-		i++;
+		i += ft_printchar(s[i]);
 	}
 	return (i);
 }

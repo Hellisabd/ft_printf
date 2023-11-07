@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/printf.h"
+#include "../ft_printf.h"
 
 int	ft_printchar(int c)
 {
@@ -28,7 +28,7 @@ int	ft_format(const char format, va_list args)
 	else if (format == 's')
 		printed += ft_prints(va_arg(args, char *));
 	else if (format == 'p')
-		printed += ft_printp(va_arg(args, void *));
+		printed += *ft_itoa_base_ulong(va_arg(args, size_t));
 	else if (format == 'd')
 		printed += ft_printnbr(va_arg(args, int));
 	else if (format == 'i')
@@ -63,7 +63,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_printchar(str[i]);
 			printed++;
 		}
 	}

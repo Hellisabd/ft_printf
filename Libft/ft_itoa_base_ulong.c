@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_check_hexa(int nbr)
+#include "libft.h"
+
+static char	fts_check_hexalow(int nbr)
 {
 	char	c;
-	
+
 	if (nbr < 10)
 		c = nbr + '0';
 	if (nbr > 10)
@@ -21,7 +23,7 @@ char	ft_check_hexa(int nbr)
 	return (c);
 }
 
-void	ft_convert_hexlow(char *res, ssize_t nbr, unsigned int nb_d, int sign)
+static void	fts_convert_hex(char *res, ssize_t nbr, unsigned int nb_d)
 {
 	int	quotient;
 	int	rest;
@@ -32,25 +34,17 @@ void	ft_convert_hexlow(char *res, ssize_t nbr, unsigned int nb_d, int sign)
 	{
 		quotient = nbr / 16;
 		rest = nbr / 16;
-		res[nb_digit--] = ft_check_hexa(rest);
+		res[nb_d--] = fts_check_hexalow(rest);
 		nb_d--;
 		nbr = quotient;
 	}
 }
 
-char	*ft_itoa_base_low_hexa(int n)
+char	*ft_itoa_base_ulong(size_t n)
 {
 	char	*res;
-	ssize_t	nbr;
 
-
-	if (n < 0)
-	{
-		nbr = (ssize_t)n * -1;
-		sign = -1;
-	}
-	else
-		nbr = (ssize_t)n;
 	res = malloc(sizeof(char) * (get_nb_digit((long) n) + 1));
-	convert_nb_hex, (res, nbr, get_nb_digit((long)n, sign);
+	fts_convert_hex(res, get_nb_digit((long)n));
+	return((int)ft_strlen(res));
 }
