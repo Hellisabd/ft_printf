@@ -12,17 +12,18 @@
 
 #include "libft.h"
 
-static	int	get_value(char c)
+static	ssize_t	get_value(char c)
 {
 	if (ft_isdigit(c))
-		return (c - '0');
+		return (c - '0' < 16);
 	if (c >= 'a' && c <= 'z')
-		return (c - 'a' + 10);
+		return (c - 'a' + 10 < 16);
 	if (c >= 'A' && c <= 'Z')
-		return (c - 'A' + 10);
+		return (c - 'A' + 10 < 16);
+	return (0);
 }
 
-int	ft_atoi_base(const char *nptr, char *base)
+ssize_t	ft_atoi_base(const char *nptr, char *base)
 {
 	int		sign;
 	size_t	res;
@@ -43,5 +44,5 @@ int	ft_atoi_base(const char *nptr, char *base)
 		res += get_value(nptr[i]);
 		i++;
 	}
-	return ((int)sign * res);
+	return ((ssize_t)sign * res);
 }

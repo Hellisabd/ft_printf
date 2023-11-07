@@ -34,6 +34,19 @@ char	ft_check_hexaup(int nbr)
 	return (c);
 }
 
+static int	get_nb_digit_hex(int n)
+{
+	int	i;
+
+	i = 0;
+	while (n != 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
 void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
 {
 	int	quotient;
@@ -41,7 +54,7 @@ void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
 
 	res[nb_d] = '\0';
 	nb_d--;
-	while(nbr > 0)
+	while (nbr > 0)
 	{
 		quotient = nbr / 16;
 		rest = nbr / 16;
@@ -58,8 +71,8 @@ void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
 
 char	*ft_itoa_base(int n, int low_or_up)
 {
-	char	*res;
-	ssize_t	nbr;
+	char		*res;
+	ssize_t		nbr;
 	t_marche	var;
 
 	var.i = low_or_up;
@@ -70,7 +83,7 @@ char	*ft_itoa_base(int n, int low_or_up)
 	}
 	else
 		nbr = (ssize_t)n;
-	res = malloc(sizeof(char) * (get_nb_digit((long) n) + 1));
-	ft_convert_hex, (res, nbr, get_nb_digit((long)n, &var));
-	return((int)ft_strlen(res));
+	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n) + 1));
+	ft_convert_hex(res, nbr, get_nb_digit_hex((long)n), &var);
+	return (res);
 }

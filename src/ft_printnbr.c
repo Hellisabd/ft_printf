@@ -20,19 +20,18 @@ int	ft_printnbr(int	n)
 	return((int)ft_strlen(res));
 }
 
-int	ft_printunb(unsigned int n)
+int	ft_printunbr(unsigned int n)
 {
 	char    *res;
-        res = ft_uitoa(n);
-        ft_prints(res);
-        return((int)ft_strlen(res));
+    res = ft_uitoa(n);
+    ft_prints(res);
+	    return((int)ft_strlen(res));
 }
 
 int	ft_printhexlow(int n)
 {
 	char	*res;
 
-	n = ft_atoi_base(n);
 	res = ft_itoa_base(n, 0);
 	ft_prints(res);
 	return ((int)ft_strlen(res));
@@ -42,7 +41,6 @@ int	ft_printhexup(int n)
 {
 	char *res;
 
-	n = ft_atoi_base(n, 0);
 	res = ft_itoa_base(n, 1);
 	ft_prints(res);
 	return ((int)ft_strlen(res));

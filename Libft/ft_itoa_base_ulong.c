@@ -23,14 +23,27 @@ static char	fts_check_hexalow(int nbr)
 	return (c);
 }
 
-static void	fts_convert_hex(char *res, ssize_t nbr, unsigned int nb_d)
+static int	get_nb_digit_hex(int n)
+{
+	int	i;
+
+	i = 0;
+	while (n != 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
+static void	fts_convert_hex(char *res, ssize_t nbr, size_t nb_d)
 {
 	int	quotient;
 	int	rest;
 
 	res[nb_d] = '\0';
 	nb_d--;
-	while(nbr > 0)
+	while (nbr > 0)
 	{
 		quotient = nbr / 16;
 		rest = nbr / 16;
@@ -44,7 +57,7 @@ char	*ft_itoa_base_ulong(size_t n)
 {
 	char	*res;
 
-	res = malloc(sizeof(char) * (get_nb_digit((long) n) + 1));
-	fts_convert_hex(res, get_nb_digit((long)n));
-	return((int)ft_strlen(res));
+	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n) + 1));
+	fts_convert_hex(res, n, get_nb_digit_hex((long)n));
+	return (res);
 }

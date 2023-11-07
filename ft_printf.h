@@ -22,9 +22,7 @@ int 	ft_printnbr(int n);
 int 	ft_prints(const char *s);
 int	    ft_printhexlow(int n);
 int	    ft_printhexup(int n);
+int     ft_printchar(int c);
 int	    ft_printunbr(unsigned int n);
-char	*ft_itoa_base_ulong(size_t n);
-char	*ft_itoa_base(int n, int low_or_up);
-char	*ft_uitoa(unsigned int n);
 
 #endif
