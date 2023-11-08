@@ -19,7 +19,7 @@ char	ft_check_hexalow(int nbr)
 	if (nbr < 10)
 		c = nbr + '0';
 	if (nbr > 9)
-		c = nbr + 'a';
+		c = nbr + 'a' - 10;
 	return (c);
 }
 
@@ -30,7 +30,7 @@ char	ft_check_hexaup(int nbr)
 	if (nbr < 10)
 		c = nbr + '0';
 	if (nbr > 9)
-		c = nbr + 'A';
+		c = nbr + 'A' - 10;
 	return (c);
 }
 
@@ -57,11 +57,11 @@ void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
 	while (nbr > 0)
 	{
 		quotient = nbr / 16;
-		rest = nbr / 16;
+		rest = nbr % 16;
 		if (var->i == 1)
-			res[nb_d--] = ft_check_hexaup(rest);
+			res[nb_d] = ft_check_hexaup(rest);
 		else
-			res[nb_d--] = ft_check_hexalow(rest);
+			res[nb_d] = ft_check_hexalow(rest);
 		nb_d--;
 		nbr = quotient;
 	}
@@ -82,7 +82,10 @@ char	*ft_itoa_base(int n, int low_or_up)
 		var.sign = -1;
 	}
 	else
+	{
+		var.sign = 0;
 		nbr = (ssize_t)n;
+	}
 	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n) + 1));
 	ft_convert_hex(res, nbr, get_nb_digit_hex((long)n), &var);
 	return (res);

@@ -40,7 +40,7 @@ int	ft_format(const char format, va_list args)
 	else if (format == 'X')
 		printed += ft_printhexup(va_arg(args, int));
 	else if (format == '%')
-		printed += ft_printchar(va_arg(args, int));
+		printed += ft_printchar('%');
 	return(printed);
 }
 
