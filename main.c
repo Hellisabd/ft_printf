@@ -3,7 +3,7 @@
 
 int	main (void)
 {
-	int	i = 255;
+	int	i = -10;
 
 	ft_printf("mon ft_printf\n");
 	ft_printf("%c\n",  'b');

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:38:30 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/04 16:17:52 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:41:53 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,20 @@ char	ft_check_hexaup(int nbr)
 	return (c);
 }
 
-static int	get_nb_digit_hex(int n)
+static int	get_nb_digit_hex(int n, t_marche *var)
 {
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		i = 1;
 	while (n != 0)
 	{
 		n /= 16;
 		i++;
 	}
+	if (var->sign == -1)
+		i++;
 	return (i);
 }
 
@@ -54,6 +58,8 @@ void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
 
 	res[nb_d] = '\0';
 	nb_d--;
+	if (nbr == 0)
+		res[nb_d] = '0';
 	while (nbr > 0)
 	{
 		quotient = nbr / 16;
@@ -86,7 +92,7 @@ char	*ft_itoa_base(int n, int low_or_up)
 		var.sign = 0;
 		nbr = (ssize_t)n;
 	}
-	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n) + 1));
-	ft_convert_hex(res, nbr, get_nb_digit_hex((long)n), &var);
+	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n, &var) + 1));
+	ft_convert_hex(res, nbr, get_nb_digit_hex((long)n, &var), &var);
 	return (res);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:34:26 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/04 15:18:51 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:06:46 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_format(const char format, va_list args)
 
 	printed = 0;
 	if (format == 'c')
-		printed += ft_printchar(va_arg(args, int)); 
+		printed += ft_printchar(va_arg(args, int));
 	else if (format == 's')
 		printed += ft_prints(va_arg(args, char *));
 	else if (format == 'p')
@@ -59,7 +59,6 @@ int	ft_printf(const char *str, ...)
 		{
 			printed += ft_format(str[i + 1], args);
 			i++;
-
 		}
 		else
 		{

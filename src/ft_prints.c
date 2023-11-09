@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_prints.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 13:43:48 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/04 17:21:50 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:19:46 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_prints(const char *s)
 	int i;
 
 	i = 0;
+	if (!s[i])
+		return (0);
 	while (s[i])
 	{
 		i += ft_printchar(s[i]);
