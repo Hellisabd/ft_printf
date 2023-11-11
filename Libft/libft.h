@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:31:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/04 17:02:01 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/11 14:53:56 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strdup(const char *s);
-char	*ft_itoa_base_ulong(size_t n);
+char	*ft_itoa_base_uintptr_t(uintptr_t n);
 char	*ft_itoa_base(int n, int low_or_up);
 char	*ft_uitoa(unsigned int n);
 size_t	ft_strlen(const char *s);
