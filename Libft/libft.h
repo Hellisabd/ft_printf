@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:31:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/11 14:53:56 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:38:58 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ typedef struct s_marche{
 	int		h;
 	size_t	i;
 	int		sign;
-}	t_marche;
+}	t_m;
 
 #endif

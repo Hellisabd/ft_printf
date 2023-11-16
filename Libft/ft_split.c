@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgrosjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:41:59 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/03 11:31:19 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:39:34 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t	count_words(char const *s, char c)
 	return (i);
 }
 
-char	*fill_dest(char const *s, t_marche *var)
+char	*fill_dest(char const *s, t_m *var)
 {
 	char	*dest;
 	int		i;
@@ -53,7 +53,7 @@ char	*fill_dest(char const *s, t_marche *var)
 }
 
 int	free_split(char **res, int j)
-{	
+{
 	while (j >= 0)
 	{
 		free (res[j]);
@@ -63,7 +63,7 @@ int	free_split(char **res, int j)
 	return (0);
 }
 
-static	int	ft_splitsplit(char const *s, char c, t_marche *var, char **res)
+static	int	ft_splitsplit(char const *s, char c, t_m *var, char **res)
 {
 	if (s[var->i] != c && var->h < 0)
 		var->h = var->i;
@@ -80,8 +80,8 @@ static	int	ft_splitsplit(char const *s, char c, t_marche *var, char **res)
 
 char	**ft_split(char const *s, char c)
 {
-	char		**res;
-	t_marche	var;
+	char	**res;
+	t_m		var;
 
 	if (!s)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:34:26 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/09 13:06:46 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:30:10 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printchar(int c)
 {
 	write(1, &c, 1);
-	return(1);
+	return (1);
 }
 
 int	ft_format(const char format, va_list args)
@@ -28,7 +28,7 @@ int	ft_format(const char format, va_list args)
 	else if (format == 's')
 		printed += ft_prints(va_arg(args, char *));
 	else if (format == 'p')
-		printed += *ft_itoa_base_ulong(va_arg(args, size_t));
+		printed += *ft_itoa_base_uintptr_t(va_arg(args, uintptr_t));
 	else if (format == 'd')
 		printed += ft_printnbr(va_arg(args, int));
 	else if (format == 'i')
@@ -41,7 +41,7 @@ int	ft_format(const char format, va_list args)
 		printed += ft_printhexup(va_arg(args, int));
 	else if (format == '%')
 		printed += ft_printchar('%');
-	return(printed);
+	return (printed);
 }
 
 int	ft_printf(const char *str, ...)

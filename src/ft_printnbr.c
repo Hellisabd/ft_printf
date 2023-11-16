@@ -6,16 +6,17 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:17:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/11 15:06:54 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:32:25 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printnbr(int	n)
+int	ft_printnbr(int n)
 {
 	int		printed;
 	char	*res;
+
 	res = ft_itoa(n);
 	ft_prints(res);
 	printed = (int)ft_strlen(res);
@@ -25,10 +26,11 @@ int	ft_printnbr(int	n)
 
 int	ft_printunbr(unsigned int n)
 {
-	char    *res;
-    res = ft_uitoa(n);
-    ft_prints(res);
-	    return((int)ft_strlen(res));
+	char	*res;
+
+	res = ft_uitoa(n);
+	ft_prints(res);
+	return ((int)ft_strlen(res));
 }
 
 int	ft_printhexlow(int n)
@@ -42,14 +44,14 @@ int	ft_printhexlow(int n)
 
 int	ft_printhexup(int n)
 {
-	char *res;
+	char	*res;
 
 	res = ft_itoa_base(n, 1);
 	ft_prints(res);
 	return ((int)ft_strlen(res));
 }
 
-int	ft_printp(unsigned long n)
+int	ft_printp(uintptr_t n)
 {
 	char	*res;
 	int		printed;
@@ -64,9 +66,9 @@ int	ft_printp(unsigned long n)
 	}
 	else
 	{
-		res = ft_itoa_base_uintptr_t(n, 0);
+		res = ft_itoa_base_uintptr_t(n);
 		ft_prints(res);
 		return (printed + (int)ft_strlen(res));
 	}
-	return(printed);
+	return (printed);
 }

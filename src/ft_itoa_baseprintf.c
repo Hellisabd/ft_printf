@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:38:30 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/11 15:14:25 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:38:40 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,24 @@ static int	get_nb_digit_hex(unsigned int n, t_marche *var)
 	return (i);
 }
 
-static void	ft_convert_hex(char *res, unsigned n, unsigned int nb_d, t_marche *var)
+static void	ft_conv_hex(char *res, unsigned int n, unsigned int ndd, t_m *var)
 {
 	int	quotient;
 	int	rest;
 
-	res[nb_d] = '\0';
+	res[nd] = '\0';
 	nb_d--;
 	if (nbr == 0)
-		res[nb_d] = '0';
+		res[nd] = '0';
 	while (nbr > 0)
 	{
 		quotient = nbr / 16;
 		rest = nbr % 16;
 		if (var->i == 1)
-			res[nb_d] = ft_check_hexaup(rest);
+			res[nd] = ft_check_hexaup(rest);
 		else
-			res[nb_d] = ft_check_hexalow(rest);
-		nb_d--;
+			res[nd] = ft_check_hexalow(rest);
+		nd--;
 		nbr = quotient;
 	}
 	if (var->sign == -1)
@@ -77,11 +77,11 @@ static void	ft_convert_hex(char *res, unsigned n, unsigned int nb_d, t_marche *v
 
 char	*ft_itoa_baseprintf(unsigned int n, int low_or_up)
 {
-	char		*res;
-	t_marche	var;
+	char	*res;
+	t_m		var;
 
 	var.i = low_or_up;
 	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n, &var) + 1));
-	ft_convert_hex(res, n, get_nb_digit_hex((long)n, &var), &var);
+	ft_conv_hex(res, n, get_nb_digit_hex((long)n, &var), &var);
 	return (res);
 }
