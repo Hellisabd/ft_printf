@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:38:30 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/09 12:41:53 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:21:21 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	ft_check_hexaup(int nbr)
 	return (c);
 }
 
-static int	get_nb_digit_hex(int n, t_marche *var)
+static int	get_nb_digit_hex(int n, t_m *var)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ static int	get_nb_digit_hex(int n, t_marche *var)
 	return (i);
 }
 
-void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_marche *var)
+static void	ft_convert_hex(char *res, ssize_t nbr, unsigned int nb_d, t_m *var)
 {
 	int	quotient;
 	int	rest;
@@ -79,7 +79,7 @@ char	*ft_itoa_base(int n, int low_or_up)
 {
 	char		*res;
 	ssize_t		nbr;
-	t_marche	var;
+	t_m			var;
 
 	var.i = low_or_up;
 	if (n < 0)

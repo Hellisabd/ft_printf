@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:44:33 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 15:26:42 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:23:13 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 int		ft_printf(const char *str, ...);
 int		ft_printnbr(int n);
 int		ft_prints(const char *s);
-int		ft_printhexlow(int n);
-int		ft_printhexup(int n);
+int		ft_printp(uintptr_t n);
+int		ft_printhexlow(unsigned int n);
+int		ft_printhexup(unsigned int n);
 int		ft_printchar(int c);
 int		ft_printunbr(unsigned int n);
 char	*ft_itoa_baseprintf(unsigned int n, int low_or_up);

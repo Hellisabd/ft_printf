@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:34:26 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 15:30:10 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:43:45 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_format(const char format, va_list args)
 	else if (format == 's')
 		printed += ft_prints(va_arg(args, char *));
 	else if (format == 'p')
-		printed += *ft_itoa_base_uintptr_t(va_arg(args, uintptr_t));
+		printed += ft_printp(va_arg(args, uintptr_t));
 	else if (format == 'd')
 		printed += ft_printnbr(va_arg(args, int));
 	else if (format == 'i')
@@ -36,9 +36,9 @@ int	ft_format(const char format, va_list args)
 	else if (format == 'u')
 		printed += ft_printunbr(va_arg(args, unsigned int));
 	else if (format == 'x')
-		printed += ft_printhexlow(va_arg(args, int));
+		printed += ft_printhexlow(va_arg(args, unsigned int));
 	else if (format == 'X')
-		printed += ft_printhexup(va_arg(args, int));
+		printed += ft_printhexup(va_arg(args, unsigned int));
 	else if (format == '%')
 		printed += ft_printchar('%');
 	return (printed);

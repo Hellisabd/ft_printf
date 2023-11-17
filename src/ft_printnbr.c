@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:17:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 15:32:25 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:32:27 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,37 @@ int	ft_printnbr(int n)
 int	ft_printunbr(unsigned int n)
 {
 	char	*res;
+	int		printed;
 
 	res = ft_uitoa(n);
+	printed = (int)ft_strlen(res);
 	ft_prints(res);
-	return ((int)ft_strlen(res));
+	free (res);
+	return (printed);
 }
 
-int	ft_printhexlow(int n)
+int	ft_printhexlow(unsigned int n)
 {
 	char	*res;
+	int		printed;
 
-	res = ft_itoa_base(n, 0);
+	res = ft_itoa_baseprintf(n, 0);
 	ft_prints(res);
-	return ((int)ft_strlen(res));
+	printed = (int)ft_strlen(res);
+	free (res);
+	return (printed);
 }
 
-int	ft_printhexup(int n)
+int	ft_printhexup(unsigned int n)
 {
 	char	*res;
+	int		printed;
 
-	res = ft_itoa_base(n, 1);
+	res = ft_itoa_baseprintf(n, 1);
 	ft_prints(res);
-	return ((int)ft_strlen(res));
+	printed = (int)ft_strlen(res);
+	free (res);
+	return (printed);
 }
 
 int	ft_printp(uintptr_t n)
@@ -68,7 +77,8 @@ int	ft_printp(uintptr_t n)
 	{
 		res = ft_itoa_base_uintptr_t(n);
 		ft_prints(res);
-		return (printed + (int)ft_strlen(res));
+		printed += (int)ft_strlen(res);
+		free (res);
+		return (printed);
 	}
-	return (printed);
 }

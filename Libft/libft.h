@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:31:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 15:38:58 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:03:55 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

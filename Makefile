@@ -2,13 +2,14 @@ NAME	= libftprintf.a
 
 SRCS	= src/ft_printf.c	\
 	  src/ft_printnbr.c	\
-	  src/ft_prints.c	
+	  src/ft_prints.c	\
+	  src/ft_itoa_baseprintf.c	
 
 OBJS	= $(SRCS:.c=.o)
 
 CC	= gcc
 
-CFLAGS	+= -Wall -Wextra -Werror
+CFLAGS	+= -Wall -Wextra -Werror -g3
 
 RM	= rm -rf
 

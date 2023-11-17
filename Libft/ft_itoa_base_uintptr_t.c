@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:38:30 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 14:25:21 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:20:47 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	fts_check_hexalow(int nbr)
 
 	if (nbr < 10)
 		c = nbr + '0';
-	if (nbr > 10)
+	if (nbr >= 10)
 		c = nbr + 'a' - 10;
 	return (c);
 }
@@ -36,10 +36,10 @@ static int	get_nb_digit_hex(uintptr_t n)
 	return (i);
 }
 
-static void	fts_convert_hex(char *res, uintptr_t nbr, size_t nb_d)
+static void	fts_convert_hex(char *res, uintptr_t nbr, int nb_d)
 {
-	int	quotient;
-	int	rest;
+	uintptr_t	quotient;
+	uintptr_t	rest;
 
 	res[nb_d] = '\0';
 	nb_d--;
@@ -58,6 +58,8 @@ char	*ft_itoa_base_uintptr_t(uintptr_t n)
 	char	*res;
 
 	res = malloc(sizeof(char) * (get_nb_digit_hex((uintptr_t) n) + 1));
+	if (!res)
+		return (NULL);
 	fts_convert_hex(res, n, get_nb_digit_hex((uintptr_t)n));
 	return (res);
 }

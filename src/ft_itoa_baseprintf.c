@@ -6,20 +6,20 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:38:30 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/16 15:38:40 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:13:25 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
 char	ft_check_hexalow(unsigned int n)
 {
 	char	c;
 
-	if (nbr < 10)
-		c = nbr + '0';
-	if (nbr > 9)
-		c = nbr + 'a' - 10;
+	if (n < 10)
+		c = n + '0';
+	if (n > 9)
+		c = n + 'a' - 10;
 	return (c);
 }
 
@@ -27,14 +27,14 @@ static char	ft_check_hexaup(unsigned int n)
 {
 	char	c;
 
-	if (nbr < 10)
-		c = nbr + '0';
-	if (nbr > 9)
-		c = nbr + 'A' - 10;
+	if (n < 10)
+		c = n + '0';
+	if (n > 9)
+		c = n + 'A' - 10;
 	return (c);
 }
 
-static int	get_nb_digit_hex(unsigned int n, t_marche *var)
+static int	get_nb_digit_hex(unsigned int n)
 {
 	int	i;
 
@@ -46,33 +46,29 @@ static int	get_nb_digit_hex(unsigned int n, t_marche *var)
 		n /= 16;
 		i++;
 	}
-	if (var->sign == -1)
-		i++;
 	return (i);
 }
 
-static void	ft_conv_hex(char *res, unsigned int n, unsigned int ndd, t_m *var)
+static void	ft_conv_hex(char *res, unsigned int n, unsigned int nd, t_m *var)
 {
 	int	quotient;
 	int	rest;
 
 	res[nd] = '\0';
-	nb_d--;
-	if (nbr == 0)
+	nd--;
+	if (n == 0)
 		res[nd] = '0';
-	while (nbr > 0)
+	while (n > 0)
 	{
-		quotient = nbr / 16;
-		rest = nbr % 16;
+		quotient = n / 16;
+		rest = n % 16;
 		if (var->i == 1)
 			res[nd] = ft_check_hexaup(rest);
 		else
 			res[nd] = ft_check_hexalow(rest);
 		nd--;
-		nbr = quotient;
+		n = quotient;
 	}
-	if (var->sign == -1)
-		res[0] = '-';
 }
 
 char	*ft_itoa_baseprintf(unsigned int n, int low_or_up)
@@ -81,7 +77,9 @@ char	*ft_itoa_baseprintf(unsigned int n, int low_or_up)
 	t_m		var;
 
 	var.i = low_or_up;
-	res = malloc(sizeof(char) * (get_nb_digit_hex((long) n, &var) + 1));
-	ft_conv_hex(res, n, get_nb_digit_hex((long)n, &var), &var);
+	res = malloc(sizeof(char) * (get_nb_digit_hex(n) + 1));
+	if (!res)
+		return (NULL);
+	ft_conv_hex(res, n, get_nb_digit_hex(n), &var);
 	return (res);
 }
