@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:17:02 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/17 15:32:27 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:41:05 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_printnbr(int n)
 	char	*res;
 
 	res = ft_itoa(n);
-	ft_prints(res);
+	if (ft_prints(res) == -1)
+		return (-1);
 	printed = (int)ft_strlen(res);
 	free (res);
 	return (printed);
@@ -31,7 +32,8 @@ int	ft_printunbr(unsigned int n)
 
 	res = ft_uitoa(n);
 	printed = (int)ft_strlen(res);
-	ft_prints(res);
+	if (ft_prints(res) == -1)
+		return (-1);
 	free (res);
 	return (printed);
 }
@@ -42,7 +44,8 @@ int	ft_printhexlow(unsigned int n)
 	int		printed;
 
 	res = ft_itoa_baseprintf(n, 0);
-	ft_prints(res);
+	if (ft_prints(res) == -1)
+		return (-1);
 	printed = (int)ft_strlen(res);
 	free (res);
 	return (printed);
@@ -54,7 +57,8 @@ int	ft_printhexup(unsigned int n)
 	int		printed;
 
 	res = ft_itoa_baseprintf(n, 1);
-	ft_prints(res);
+	if (ft_prints(res) == -1)
+		return (-1);
 	printed = (int)ft_strlen(res);
 	free (res);
 	return (printed);
@@ -65,7 +69,8 @@ int	ft_printp(uintptr_t n)
 	char	*res;
 	int		printed;
 
-	write (1, "0x", 2);
+	if (ft_prints("0x") == -1)
+		return (-1);
 	printed = 2;
 	if (n == 0)
 	{
@@ -76,7 +81,8 @@ int	ft_printp(uintptr_t n)
 	else
 	{
 		res = ft_itoa_base_uintptr_t(n);
-		ft_prints(res);
+		if (ft_prints(res) == -1)
+			return (-1);
 		printed += (int)ft_strlen(res);
 		free (res);
 		return (printed);
