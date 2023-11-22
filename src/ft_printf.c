@@ -6,7 +6,7 @@
 /*   By: bgrosjea <bgrosjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:34:26 by bgrosjea          #+#    #+#             */
-/*   Updated: 2023/11/20 12:29:22 by bgrosjea         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:35:12 by bgrosjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,26 @@ int	ft_format(const char format, va_list args)
 
 int	ft_splitprint(const char *str, va_list args)
 {
-	size_t	i;
 	int		printed;
 	int		tmp;
 
-	i = 0;
 	printed = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			tmp = ft_format(str[i + 1], args);
+			tmp = ft_format(*(str + 1), args);
 			if (tmp == -1)
 				return (-1);
 			printed += tmp;
-			i++;
+			str++;
 		}
 		else
 		{
-			ft_printchar(str[i]);
+			ft_printchar(*str);
 			printed++;
 		}
-		i++;
+		str++;
 	}
 	return (printed);
 }
